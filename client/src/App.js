@@ -31,7 +31,14 @@ function App() {
         // >
         //   Learn React
         // </a>
-        <a href="https://www.anglustudija.lt/" className="App-link" target="_blank" rel="noopener noreferrer">VISIT AKS!</a>
+        <a
+          className="App-link"
+          href="https://www.anglustudija.lt/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VISIT AKS!
+        </a>
       </header>
     </div>
   );
