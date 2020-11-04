@@ -13,24 +13,14 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
 
-        //[DON'T TOUCH THIS]
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={CreateRoom}/>
             <Route path="/room/:roomID" component={Room}/>
           </Switch>
         </BrowserRouter>
-        //DON'T TOUCH THIS
 
 
-        // <a
-        //   className="App-link"
-        //   href="https://reactjs.org"
-        //   target="_blank"
-        //   rel="noopener noreferrer"
-        // >
-        //   Learn React
-        // </a>
         <a
           className="App-link"
           href="https://www.anglustudija.lt/"
