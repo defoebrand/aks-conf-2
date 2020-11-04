@@ -1,4 +1,4 @@
-import logo from './logo.jpg';
+import logo from './logo.png';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CreateRoom from "./routes/CreateRoom";
