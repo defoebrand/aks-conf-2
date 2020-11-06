@@ -4,18 +4,14 @@ import {
 } from "uuid";
 
 const CreateRoom = (props) => {
-  function create() {
-    const id = uuid();
-    props.history.push(`/room/${id}`);
-    const logo = document.querySelector('.App-logo');
-    document.remove(logo);
-  }
+    function create() {
+      const id = uuid();
+      props.history.push(`/room/${id}`);
+    }
 
-  return ( <
-    button onClick = {
-      create
-    } > Create Room < /button>
-  );
-}
+    return ( < button onClick = {
+        create
+      } > Create Room < /button> );
+    }
 
-export default CreateRoom;
+    export default CreateRoom;

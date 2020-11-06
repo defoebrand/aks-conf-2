@@ -15,8 +15,9 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* background-color: #282c34; */
+
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,4 +38,49 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.classroom,
+.calendar,
+.homework {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.calendar,
+.homework {
+  flex-direction: column;
+  padding: 15px;
+  margin: 5px;
+  min-width: 20%;
+}
+
+.calendar {
+  min-width: 60%;
+  margin-top: 50px;
+}
+
+.greenboard,
+.homework {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 15px;
+  margin: 5px;
+  max-width: 55.56%;
+}
+
+.calendar-image {
+  max-height: 500px;
+}
+
+.homework button {
+  /* text-align: center; */
+}
+
+.payment {
+  margin-right: 75px;
 }
