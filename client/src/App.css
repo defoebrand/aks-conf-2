@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: -20px;
 }
 
 .App-logo {
@@ -24,6 +25,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-header button {
+  border: 0;
+  color: inherit;
+}
+
+.App-header button:hover {
+  color: #ccc;
 }
 
 .App-link {
@@ -74,11 +84,9 @@
 }
 
 .calendar-image {
+  position: relative;
   max-height: 500px;
-}
-
-.homework button {
-  /* text-align: center; */
+  z-index: -1;
 }
 
 .payment {
