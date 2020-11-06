@@ -127,11 +127,14 @@ const Room = (props) => {
     video autoPlay ref = {
       userVideo
     }
-    /> <
+    id = "video1" /
+    >
+    <
     video autoPlay ref = {
       partnerVideo
     }
-    /> < /
+    id = "video2" /
+    > < /
     div >
   );
 };

@@ -92,3 +92,19 @@
 .payment {
   margin-right: 75px;
 }
+
+#video1 {
+  position: fixed;
+  top: 75px;
+  left: 75px;
+  width: 33vw;
+  height: auto;
+}
+
+#video2 {
+  position: fixed;
+  top: 75px;
+  right: 75px;
+  width: 33vw;
+  height: auto;
+}
