@@ -121,21 +121,21 @@ const Room = (props) => {
     partnerVideo.current.srcObject = e.streams[0];
   };
 
-  return ( <
-    div >
+  return ( < div >
     <
     video autoPlay ref = {
       userVideo
     }
-    id = "video1" /
-    >
+    id = "video1"
+    muted = "muted" / >
     <
     video autoPlay ref = {
       partnerVideo
     }
-    id = "video2" /
-    > < /
-    div >
+    id = "video2"
+    muted = "muted" / >
+    <
+    /    div >
   );
 };
 
