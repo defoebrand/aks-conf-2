@@ -132,8 +132,7 @@ const Room = (props) => {
     video autoPlay ref = {
       partnerVideo
     }
-    id = "video2"
-    muted = "muted" / >
+    id = "video2" / >
     <
     /    div >
   );
