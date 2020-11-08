@@ -8,17 +8,34 @@ import Peer from "simple-peer";
 import styled from "styled-components";
 
 const Container = styled.div `
-    padding: 20px;
+
+    position: fixed;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    padding: 15px;
     display: flex;
-    height: 100vh;
-    width: 90%;
-    margin: auto;
     flex-wrap: wrap;
+
+    /* height: 100vh; */
+
+    /* width: 90%; */
+
+    /* margin: auto; */
+    border-radius: 25px;
+    border: 10px solid #462305;
+    background: rgb(11, 167, 87);
+
+    /* background-image: url("..client/public/chalkboard.png"); */
+
+    /* background-color: greenrgb(); */
 `;
 
 const StyledVideo = styled.video `
+
     height: 40%;
-    width: 50%;
+    width: 25%;
 `;
 
 const Video = (props) => {
@@ -31,7 +48,7 @@ const Video = (props) => {
   }, [props.peer]);
 
   return ( <
-    StyledVideo playsInline autoPlay ref = {
+    StyledVideo autoPictureInPicture controls playsInline autoPlay ref = {
       ref
     }
     />
@@ -138,12 +155,14 @@ const Room = (props) => {
     //   <
     //   / div >
     // );
+    // document.querySelector('.sc-bdfBwQ').style.border = "1px solid black";
+    // .backgroundImage = "url(chalkboard.png)"
     return ( < Container >
         <
         StyledVideo muted ref = {
           userVideo
         }
-        autoPlay playsInline / > {
+        autoPlay playsInline autoPictureInPicture controls controlsList = "nodownload noremoteplayback" / > {
           peers.map((peer, index) => {
               return ( < Video key = {
                   index
