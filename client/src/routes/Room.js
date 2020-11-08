@@ -11,6 +11,7 @@ const Room = (props) => {
   const socketRef = useRef();
   const otherUser = useRef();
   const userStream = useRef();
+  const senders = useRef([]);
 
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({
@@ -42,7 +43,7 @@ const Room = (props) => {
 
   function callUser(userID) {
     peerRef.current = createPeer(userID);
-    userStream.current.getTracks().forEach(track => peerRef.current.addTrack(track, userStream.current));
+    userStream.current.getTracks().forEach(track => senders.current.push(peerRef.current.addTrack(track, userStream.current)));
   }
 
   function createPeer(userID) {
@@ -121,20 +122,47 @@ const Room = (props) => {
     partnerVideo.current.srcObject = e.streams[0];
   };
 
-  return ( < div >
+  function shareScreen() {
+    navigator.mediaDevices.getDisplayMedia({
+      cursor: true
+    }).then(stream => {
+      const screenTrack = stream.getTracks()[0];
+      senders.current.find(sender => sender.track.kind === 'video').replaceTrack(screenTrack);
+      screenTrack.onended = function() {
+        senders.current.find(sender => sender.track.kind === "video").replaceTrack(userStream.current.getTracks()[1]);
+      }
+    })
+  }
+
+  return ( <
+    div >
     <
-    video autoPlay ref = {
+    video controls style = {
+      {
+        height: 500,
+        width: 500
+      }
+    }
+    autoPlay muted id = "video1"
+    ref = {
       userVideo
     }
-    id = "video1"
-    muted = "muted" / >
-    <
-    video autoPlay ref = {
+    /> <
+    video controls style = {
+      {
+        height: 500,
+        width: 500
+      }
+    }
+    autoPlay id = "video2"
+    ref = {
       partnerVideo
     }
-    id = "video2" / >
-    <
-    /    div >
+    /> <
+    button onClick = {
+      shareScreen
+    } > Share screen < /button> < /
+    div >
   );
 };
 
