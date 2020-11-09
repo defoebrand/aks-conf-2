@@ -159,10 +159,10 @@ const Room = (props) => {
     // .backgroundImage = "url(chalkboard.png)"
     return ( < Container >
         <
-        StyledVideo muted ref = {
+        StyledVideo ref = {
           userVideo
         }
-        autoPlay playsInline autoPictureInPicture controls controlsList = "nodownload noremoteplayback" / > {
+        muted autoPlay playsInline autoPictureInPicture controls / > {
           peers.map((peer, index) => {
               return ( < Video key = {
                   index
