@@ -1,7 +1,4 @@
-import React, {
-  useRef,
-  useEffect
-} from "react";
+import React, { useRef, useEffect } from "react";
 import io from "socket.io-client";
 
 const Room = (props) => {
@@ -44,6 +41,8 @@ const Room = (props) => {
   function callUser(userID) {
     peerRef.current = createPeer(userID);
     userStream.current.getTracks().forEach(track => senders.current.push(peerRef.current.addTrack(track, userStream.current)));
+    // const test = document.querySelector('.App-header button');
+    // test.id = "test"
   }
 
   function createPeer(userID) {
@@ -134,35 +133,18 @@ const Room = (props) => {
     })
   }
 
-  return ( <
-    div >
-    <
-    video controls style = {
-      {
-        height: 500,
-        width: 500
-      }
-    }
-    autoPlay muted id = "video1"
-    ref = {
-      userVideo
-    }
-    /> <
-    video controls style = {
-      {
-        height: 500,
-        width: 500
-      }
-    }
-    autoPlay id = "video2"
-    ref = {
-      partnerVideo
-    }
-    /> <
-    button onClick = {
-      shareScreen
-    } > Share screen < /button> < /
-    div >
+  return (
+    <div>
+      <video controls
+      style = { {height: 500, width: 500} }
+      autoPlay muted id = "video1"
+      ref = {userVideo}/>
+      <video controls
+      style = { {height: 500, width: 500} }
+      autoPlay id = "video2"
+      ref = {partnerVideo}/>
+      <button onClick = {shareScreen}> Share screen < /button>
+    </div>
   );
 };
 
