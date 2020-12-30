@@ -157,23 +157,15 @@ const Room = (props) => {
     // );
     // document.querySelector('.sc-bdfBwQ').style.border = "1px solid black";
     // .backgroundImage = "url(chalkboard.png)"
-    return ( < Container >
-        <
-        StyledVideo ref = {
-          userVideo
-        }
-        muted autoPlay playsInline autoPictureInPicture controls / > {
-          peers.map((peer, index) => {
-              return ( < Video key = {
-                  index
-                }
-                peer = {
-                  peer
-                }
-                />   );
-              })
-          } <
-          /Container > );
+    return (
+      <Container>
+        <StyledVideo ref={userVideo}
+        muted autoPlay playsInline autoPictureInPicture controls/>
+        {peers.map((peer, index) => {
+          return (
+            <Video key={index} peer={peer}/> );
+              })}
+      </Container > );
         };
 
         export default Room;
