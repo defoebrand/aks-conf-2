@@ -33,7 +33,7 @@ const Container = styled.div `
 `;
 
 const StyledVideo = styled.video `
-
+    margin: 0 50px;
     height: 40%;
     width: 25%;
 `;
@@ -61,6 +61,8 @@ const Room = (props) => {
     const socketRef = useRef();
     const userVideo = useRef();
     const roomID = props.match.params.roomID;
+    const userStream = useRef();
+    // const senders = useRef([]);
 
 
     useEffect(() => {
@@ -69,7 +71,7 @@ const Room = (props) => {
         video: true
       }).then(stream => {
         userVideo.current.srcObject = stream;
-        // userStream.current = stream;
+        userStream.current = stream;
 
         socketRef.current = io.connect("/");
         socketRef.current.emit("join room", roomID);
@@ -92,9 +94,9 @@ const Room = (props) => {
             peerID: payload.callerID,
             peer,
           })
-
           setPeers(users => [...users, peer]);
         });
+  
         socketRef.current.on("receiving returned signal", payload => {
           const item = peersRef.current.find(p => p.peerID === payload.id);
           item.peer.signal(payload.signal);
@@ -143,20 +145,17 @@ const Room = (props) => {
       return peer;
     }
 
-
-    // return ( < div >
-    //   <
-    //   video autoPlay ref = {
-    //     userVideo
-    //   }
-    //   id = "video1"
-    //   muted = "muted" / >
-    //
-    //   <
-    //   / div >
-    // );
-    // document.querySelector('.sc-bdfBwQ').style.border = "1px solid black";
-    // .backgroundImage = "url(chalkboard.png)"
+function shareScreen() {
+  navigator.mediaDevices.getDisplayMedia({
+  cursor: true
+  }).then(stream => {
+    const screenTrack = stream.getTracks()[0];
+    peersRef.current.find(sender => sender.track.kind === 'video').replaceTrack(screenTrack);
+    screenTrack.onended = function() {
+      peersRef.current.find(sender => sender.track.kind === "video").replaceTrack(userStream.current.getTracks()[1]);
+    }
+  })
+}
     return (
       <Container>
         <StyledVideo ref={userVideo}
@@ -165,6 +164,7 @@ const Room = (props) => {
           return (
             <Video key={index} peer={peer}/> );
               })}
+         <button onClick = {shareScreen}> Share screen < /button>
       </Container > );
         };
 
