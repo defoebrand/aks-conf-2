@@ -1,6 +1,13 @@
 .App {
   text-align: center;
   margin-top: -20px;
+
+  /* margin-top: 100px; */
+
+  /* position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3; */
 }
 
 .App-logo {
@@ -16,7 +23,7 @@
 }
 
 .App-header {
-  /* background-color: #282c34; */
+  background-color: #282c34;
 
   /* min-height: 100vh; */
   display: flex;
@@ -24,7 +31,16 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+
+  /* padding: 10px; */
+
+  /* cursor: move; */
+
+  /* z-index: 10; */
+
+  /* background-color: #2196f3; */
+
+  color: #fff;
 }
 
 .App-header button {
@@ -107,4 +123,14 @@
   left: 75px;
   width: 33vw;
   height: auto;
+}
+
+.sc-bdfBwQ {
+  /* background-image: url("./chalkboard.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#teacherVideo {
+  width: 50%;
 }
